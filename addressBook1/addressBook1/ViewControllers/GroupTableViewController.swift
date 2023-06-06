@@ -9,8 +9,6 @@ import UIKit
 
 class GroupTableViewController: UITableViewController {
     
-  
-    
     // MARK: - Properties
     let groupController = GroupController.shared
     
@@ -21,7 +19,6 @@ class GroupTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return groupController.groups.count
     }
@@ -34,11 +31,8 @@ class GroupTableViewController: UITableViewController {
         return cell
     }
     
-    
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            
             let group = groupController.groups[indexPath.row]
             groupController.deleteGroup(group: group)
             tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -46,8 +40,7 @@ class GroupTableViewController: UITableViewController {
         }
     }
     
-    // MARK: - Navigatio IIDOO
-    
+    // MARK: - Navigation IIDOO
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "toPeopleTableViewVC",
               let destinationVC = segue.destination as?
@@ -56,12 +49,10 @@ class GroupTableViewController: UITableViewController {
         let group = groupController.groups[selectedRow]
         destinationVC.group = group
     }
+    
     // MARK: - Actions
     @IBAction func addButtonTapped(_ sender: Any) {
-        
         groupController.createGroup()
         tableView.reloadData()
     }
-    
 }
-

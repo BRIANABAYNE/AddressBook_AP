@@ -15,29 +15,27 @@ class GroupController {
     
     init() {
         load()
-        
     }
     
     // MARK: - Functions (Create,Read, Update, Delete)
-    
     func createGroup(name: String = "Untitled Group", people: [Person] = []) {
         let group = Group(name: name)
         groups.append(group)
         save()
-        
     }
     
     func updateGroup(group: Group, name: String){
         group.name = name
         save()
     }
-
+    
     func deleteGroup(group: Group) {
         guard let index = groups.firstIndex(of: group)
         else { return }
         groups.remove(at: index)
         save()
     }
+    
     // MARK: - Persistence
     func save() {
         guard let url = fileURL else {return}
@@ -48,6 +46,7 @@ class GroupController {
             print(error)
         }
     }
+    
     func load() {
         guard let url = fileURL else { return }
         do {
@@ -58,6 +57,7 @@ class GroupController {
             print(error)
         }
     }
+    
     private var fileURL: URL? {
         guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         else {return nil}
@@ -65,6 +65,3 @@ class GroupController {
         return url
     }
 }
-
-
-

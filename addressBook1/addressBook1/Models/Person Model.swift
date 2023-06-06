@@ -20,16 +20,11 @@ class Person: Codable {
         self.isFavorite = isfavorite
     }
 }
-   
 
-
-
-    // MARK: - Extension
-    
-    extension Person: Equatable {
-        static func == (lhs: Person, rhs: Person ) -> Bool {
-            return lhs.id == rhs.id
-            
-        }
+// MARK: - Extension
+extension Person: Equatable {
+    static func == (lhs: Person, rhs: Person ) -> Bool {
+        return lhs.id == rhs.id
+        
     }
-
+}
