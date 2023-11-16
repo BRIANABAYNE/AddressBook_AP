@@ -9,8 +9,6 @@ import Foundation
 
 class PersonController {
     
-    // MARK: - Properties
-    
     // MARK: - Functions Create, update, delete
     static func createPerson(name: String = "New Contact", address: String = "Contact Address", group: Group) {
         let person = Person(name: name, address: address)
@@ -29,7 +27,6 @@ class PersonController {
         people.name = name
         people.address = address
         GroupController.shared.save()
-        
     }
     
     static func toggleFavoite(person: Person) {

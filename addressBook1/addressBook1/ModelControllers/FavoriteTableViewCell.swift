@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - Protocol
 protocol FavoriteTableViewCellDelegate: AnyObject {
     func toggleFavoriteButtonTapped(cell: FavoriteTableViewCell)
 }
@@ -30,7 +31,7 @@ class FavoriteTableViewCell: UITableViewCell {
         delegate?.toggleFavoriteButtonTapped(cell: self)
     }
     
-    // MARK: - Functions // LOOK
+    // MARK: - Methods
     func updateUI() {
         guard let person = person else { return }
         nameLabel.text = person.name

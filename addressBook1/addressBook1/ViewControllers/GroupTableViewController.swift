@@ -12,7 +12,7 @@ class GroupTableViewController: UITableViewController {
     // MARK: - Properties
     let groupController = GroupController.shared
     
-    // MARK: - Lifecycle methods
+    // MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
@@ -40,7 +40,7 @@ class GroupTableViewController: UITableViewController {
         }
     }
     
-    // MARK: - Navigation IIDOO
+    // MARK: - Navigation 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "toPeopleTableViewVC",
               let destinationVC = segue.destination as?

@@ -17,19 +17,18 @@ class PersonDetailViewController: UIViewController {
     // MARK: - Properties
     var person: Person?
    
-    // MARK: - Methods
+    // MARK: - Lifecyle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         updateViews()
     }
     
+    // MARK: - Methods
     func updateViews() {
         guard let person = person else { return }
         nameTextField.text = person.name
         addressTextField.text = person.address
     }
-    
     func updateFavoriteButton() {
         guard let person = person else { return }
         let favoriteImageName = person.isFavorite ? "moons.stars.fill" : "moon.stars"
@@ -43,7 +42,6 @@ class PersonDetailViewController: UIViewController {
               let name = nameTextField.text,
               let address = addressTextField.text else { return }
         PersonController.updatePerson(people: person, name: name, address: address)
-        
         self.navigationController?.popViewController(animated: true)
     }
     

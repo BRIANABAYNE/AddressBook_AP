@@ -23,7 +23,7 @@ class PeopleTableViewController: UITableViewController {
         }
     }
     
-    // MARK: - Lifecycle methods
+    // MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         groupNameTextField.text = group?.name
@@ -81,7 +81,7 @@ class PeopleTableViewController: UITableViewController {
     }
 }
 
-// MARK: - FavoriteTableViewCellDelegate conformance
+// MARK: - Extension 
 extension PeopleTableViewController: FavoriteTableViewCellDelegate {
     func toggleFavoriteButtonTapped(cell: FavoriteTableViewCell) {
         guard let person = cell.person else { return }

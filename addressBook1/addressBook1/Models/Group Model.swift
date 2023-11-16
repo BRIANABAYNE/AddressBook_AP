@@ -7,7 +7,7 @@
 
 import Foundation
 
-// max is always right
+
 class Group: Codable {
     let id: UUID
     var name: String
